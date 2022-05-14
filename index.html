@@ -71,6 +71,50 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-商品时间修改" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/05/14/%E5%95%86%E5%93%81%E6%97%B6%E9%97%B4%E4%BF%AE%E6%94%B9/" class="article-date">
+  <time class="dt-published" datetime="2022-05-14T11:59:05.000Z" itemprop="datePublished">2022-05-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/05/14/%E5%95%86%E5%93%81%E6%97%B6%E9%97%B4%E4%BF%AE%E6%94%B9/">对商品时间的改进</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>问题原因： </p>
+<p>在后端GoodService.js的代码中，添加商品功能和修改商品功能的时间除以了1000，也就是从毫秒转成了秒。但是我们在前端写dataFormat这个函数的时候，是直接将时间戳进行了转化，依旧以毫秒作为时间单位。</p>
+<h2 id="解决步骤"><a href="#解决步骤" class="headerlink" title="解决步骤"></a>解决步骤</h2><p>将originVal *1000 即可</p>
+<p>代码如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Vue.filter(<span class="string">&#x27;dataFormat&#x27;</span>, <span class="keyword">function</span> (originVal) &#123;</span><br><span class="line">  const dt = new Date(originVal * 1000)</span><br><span class="line">  const y = dt.getFullYear()</span><br><span class="line">  const m = (dt.getMonth() + 1 + <span class="string">&#x27;&#x27;</span>).padStart(2, <span class="string">&#x27;0&#x27;</span>)</span><br><span class="line">  const d = (dt.getDate() + <span class="string">&#x27;&#x27;</span>).padStart(2, <span class="string">&#x27;0&#x27;</span>)</span><br><span class="line"></span><br><span class="line">  const hh = (dt.getHours() + <span class="string">&#x27;&#x27;</span>).padStart(2, <span class="string">&#x27;0&#x27;</span>)</span><br><span class="line">  const mm = (dt.getMinutes() + <span class="string">&#x27;&#x27;</span>).padStart(2, <span class="string">&#x27;0&#x27;</span>)</span><br><span class="line">  const ss = (dt.getSeconds() + <span class="string">&#x27;&#x27;</span>).padStart(2, <span class="string">&#x27;0&#x27;</span>)</span><br><span class="line"></span><br><span class="line">  <span class="built_in">return</span> `<span class="variable">$&#123;y&#125;</span>-<span class="variable">$&#123;m&#125;</span>-<span class="variable">$&#123;d&#125;</span> <span class="variable">$&#123;hh&#125;</span>:<span class="variable">$&#123;mm&#125;</span>:<span class="variable">$&#123;ss&#125;</span>`</span><br><span class="line">&#125;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/05/14/%E5%95%86%E5%93%81%E6%97%B6%E9%97%B4%E4%BF%AE%E6%94%B9/" data-id="cl35vc2h60003eguh7wxo7amv" data-title="对商品时间的改进" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-回车键登录" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2022/05/14/%E5%9B%9E%E8%BD%A6%E9%94%AE%E7%99%BB%E5%BD%95/" class="article-date">
@@ -104,7 +148,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/05/14/%E5%9B%9E%E8%BD%A6%E9%94%AE%E7%99%BB%E5%BD%95/" data-id="cl35khmd60000fkuheihmgqq9" data-title="添加回车键登录功能" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/05/14/%E5%9B%9E%E8%BD%A6%E9%94%AE%E7%99%BB%E5%BD%95/" data-id="cl35vc2h40002eguh7bjrhq5w" data-title="添加回车键登录功能" class="article-share-link">Share</a>
       
       
       
@@ -166,7 +210,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/05/05/work/" data-id="cl2spaft400010ouhb5vlgvsf" data-title="vue引入element-ui之后，页面空白的解决方法" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/05/05/work/" data-id="cl35vc2gt0000eguha9mcbax1" data-title="vue引入element-ui之后，页面空白的解决方法" class="article-share-link">Share</a>
       
       
       
@@ -217,7 +261,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/05/05/hello-world/" data-id="cl2spafsb00000ouh7jvagx4v" data-title="Hello World" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/05/05/hello-world/" data-id="cl35vc2h00001eguh5lswfnop" data-title="Hello World" class="article-share-link">Share</a>
       
       
       
@@ -258,6 +302,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2022/05/14/%E5%95%86%E5%93%81%E6%97%B6%E9%97%B4%E4%BF%AE%E6%94%B9/">对商品时间的改进</a>
+          </li>
         
           <li>
             <a href="/2022/05/14/%E5%9B%9E%E8%BD%A6%E9%94%AE%E7%99%BB%E5%BD%95/">添加回车键登录功能</a>
